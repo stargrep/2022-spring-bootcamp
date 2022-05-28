@@ -61,7 +61,7 @@ assert expected_dict == {'key1': 'val1', 'key2': 'val2'}
 
 
 # Q5. Find left-most and right-most index for a target in a sorted array with duplicated items.
-# provided an example of slow version of bsearch_slow with O(n) time complecity. 
+# provided an example of slow version of bsearch_slow with O(n) time complexity.
 # your solution should be faster than bsearch_slow
 
 def bsearch_slow(arr: [int], target: int) -> tuple[int, int]:

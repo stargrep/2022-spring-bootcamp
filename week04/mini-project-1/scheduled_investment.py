@@ -72,4 +72,4 @@ def export_result() -> float:
 
 if __name__ == '__main__':
     print(calculate_scheduled_investment(read_data()))
-    # print("Investment Return: ", export_result())
+    print("Investment Return: ", export_result())
