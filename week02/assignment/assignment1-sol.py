@@ -15,9 +15,17 @@ def factorial(x: int) -> int:
         res *= i
     return res
 
+
+# def factorial(x: int) -> int:
+#     from functools import reduce
+#     from operator import mul
+#     return 1 if x < 1 else reduce(mul, range(1, x + 1))
+
+
 # def factorial(x: int) -> int:
 #     from functools import reduce
 #     return reduce(lambda a, b: a * b, [1] + list(range(1, x + 1)))
+
 
 assert factorial(0) == 1
 assert factorial(1) == 1
@@ -75,7 +83,7 @@ assert not xor(False, False)
 
 def get_current_time() -> str:
     from datetime import datetime
-    return datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+    return datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
 assert "T" in get_current_time()
@@ -83,7 +91,7 @@ assert "Z" in get_current_time()
 assert 20 == len(get_current_time())
 
 
-# Q7. Write a Python program to sum of two given integers. However, if the sum is between 15 to 20 it will return 20
+# Q7. Write a Python program to sum of two given integers. However, if the sum is between 15 and 20 it will return 20
 # please define function and test yourself.
 
 def sum_num(a: int, b: int) -> int:
@@ -94,6 +102,7 @@ def sum_num(a: int, b: int) -> int:
 
 # def sum_num(a, b):
 #     return 20 if (a + b) in range(15, 21) else a + b
+
 
 assert sum_num(10, 4) == 14
 assert sum_num(10, 6) == 20
