@@ -24,7 +24,7 @@ def print_sum(x: int) -> str:
     sum_x2 = 0
     for i in range(1,x+1):
         sum_x2 = sum_x2 + i
-    return sum_x2
+    return str(sum_x2)
 
 assert print_sum(1) == "1"
 assert print_sum(3) == "6"
@@ -33,15 +33,17 @@ assert print_sum(5) == "15"
 
 # Q3. Write a program to check is a year is leap year (x is always > 0)
 
+# def is_leap_year(year: int) -> bool:
+#     if year%400 == 0:
+#         return True
+#     else:
+#         if year%4 == 0 and year%100 != 0:
+#             return True
+#         else:
+#             return False
+#改
 def is_leap_year(year: int) -> bool:
-    if year%400 == 0:
-        return True
-    else:
-        if year%4 == 0 and year%100 != 0:
-            return True
-        else:
-            return False
-
+    return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
 
 
 assert is_leap_year(2000)
@@ -65,11 +67,14 @@ assert to_upper_case(["Amazon", "Apple"]) == ["AMAZON", "APPLE"]
 # Q5. Write a program to use only 'and' and 'or' to implement 'xor'
 # https://baike.baidu.com/item/%E5%BC%82%E6%88%96/10993677?fromtitle=xor&fromid=64178
 
+#def xor(a: bool, b: bool) -> bool:
+    # if a!=b:
+    #     return True
+    # else:
+    #     return False
+#改
 def xor(a: bool, b: bool) -> bool:
-    if a!=b:
-        return True
-    else:
-        return False
+    return a != b
 
 
 assert not xor(True, True)
@@ -82,13 +87,16 @@ assert not xor(False, False)
 
 import datetime
 
+# def get_current_time() -> str:
+#     strtime = datetime.datetime.utcnow().replace(microsecond=0).isoformat()
+#     listtime = list(strtime)
+#     listtime.append('Z')
+#     time = "".join(listtime)
+#     return time
+#改
 def get_current_time() -> str:
-    strtime = datetime.datetime.utcnow().replace(microsecond=0).isoformat()
-    listtime = list(strtime)
-    listtime.append('Z')
-    time = "".join(listtime)
-    return time
-
+    from datetime import datetime
+    return datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
 assert "T" in get_current_time()
