@@ -32,7 +32,7 @@ assert print_sum(5) == "15"
 # Q3. Write a program to check is a year is leap year (x is always > 0)
 
 def is_leap_year(year: int) -> bool:
-    if year%4==0:
+    if (year%400==0) or (year%100!=0 and year%4==0):
         return True
     else:
         return False
@@ -58,13 +58,13 @@ assert to_upper_case(["Amazon", "Apple"]) == ["AMAZON", "APPLE"]
 
 def xor(a: bool, b: bool) -> bool:
     if a==1 and b==1:
-        return 0
+        return FALSE
     elif a==0 and b==1:
-        return 1
+        return TRUE
     elif a==1 and b==0:
-        return 1
+        return TRUE
     else:
-        return 0
+        return FALSE
 
 assert not xor(True, True)
 assert xor(True, False)
@@ -76,8 +76,9 @@ assert not xor(False, False)
 
 def get_current_time() -> str:
     import datetime
-    time=datetime.datetime.now()
-    y=time.isoformat()
+    now_time=datetime.now()
+    y=now_time-timedelta(hours=8)
+    y=y.strftime("%Y-%m-%d %H:%M:%S")
     y=y[:19]+"Z"
     return y
 
