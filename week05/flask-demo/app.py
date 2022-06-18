@@ -2,12 +2,13 @@ from flask import Flask
 from flask import request
 
 app = Flask(__name__)
-first_to_last_names = {"anna": "zhang", "mike": "li"}
+first_to_last_names = {"anna": "zhang",
+                       "mike": "li"}
 
 
 @app.route('/hello')
 def hello_world():
-    return 'Hello, '
+    return 'Hello, world! '
 
 
 @app.route('/user/<name>')
@@ -21,8 +22,6 @@ def show_user_profile(name: str):
 @app.route('/update', methods=['POST'])
 def login():
     name = request.json
-    if 'first_name' not in name:
-        return "No 'first_name' in Request Body"
     if 'last_name' in name:
         look_up_user_info(name['first_name'], name['last_name'], method='POST')
     return look_up_user_info(name['first_name'], method='POST')
